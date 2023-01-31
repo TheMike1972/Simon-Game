@@ -1,0 +1,215 @@
+/* Changa Variable font */
+@font-face {
+    font-family: "Changa";
+    src: url('./../elements/Changa-VariableFont_wght.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ConcertOne font */
+@font-face {
+    font-family: "ConcertOne";
+    src: url('./../elements/ConcertOne-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* RussoOne font */
+@font-face {
+    font-family: "RussoOne";
+    src: url('./../elements/RussoOne-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    outline: 1px solid red;
+    background-color: rgb(136, 104, 62);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: rgb(136, 104, 62);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    border-radius: 1em;
+    border: 1 px solid black;
+}
+
+#head-title {
+    background-color:  rgb(160, 198, 228);
+    font-size: 4em;
+}
+
+h1 > span {
+    font-family: "Changa";
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: rgb(160, 198, 228);
+    font-size: 1em;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    background-color: rgb(160, 198, 228);
+    font-size: 2em;
+    padding: 0.5em 3em
+}
+
+.outer-circle {
+    background-color: #385a94;
+    height: 50em;
+    width: 50em;
+    position: relative;
+    border-style: solid;
+    border-width: 1em;
+    margin: auto;
+    margin-top: 6em;
+    margin-bottom: 4em;
+    box-shadow: 0.9em .9em 1.5em 0.9em #888;
+}
+
+
+#top-left-panel {
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    cursor: pointer;
+    border-radius: 20em 0 0 0;
+    -moz-border-radius: 20em 0 0 0;
+    -webkit-border-radius: 20em 0 0 0;
+    background-color: darkgreen;
+    top: 50%;
+    left: 50%;
+    margin: -20em 0 0 -20em;
+    border-style: solid;
+    border-width: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#top-right-panel {
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    cursor: pointer;
+    border-radius: 0 20em 0 0;
+    -moz-border-radius: 0 20em 0 0;
+    -webkit-border-radius: 0 20em 0 0;
+    background-color: darkred;
+    top: 50%;
+    left: 50%;
+    margin: -20em 0 0 0;
+    border-style: solid;
+    border-width: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#bottom-left-panel {
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    cursor: pointer;
+    border-radius: 0 0 0 20em;
+    -moz-border-radius: 0 0 0 20em;
+    -webkit-border-radius: 0 0 0 20em;
+    background-color: goldenrod;
+    top: 50%;
+    left: 50%;
+    margin: 0 -20em 0 -20em;
+    border-style: solid;
+    border-width: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#bottom-right-panel {
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    cursor: pointer;
+    border-radius: 0 0 20em 0;
+    -moz-border-radius: 0 0 20em 0;
+    -webkit-border-radius: 0 0 20em 0;
+    background-color: darkblue;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 -20em 0;
+    border-style: solid;
+    border-width: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#inner-circle {
+    position: absolute;
+    background-color: lightgray;
+    border-radius: 50%;
+    height: 18em;
+    width: 18em;
+    border-style: solid;
+    border-width: 1em;
+    top: 50%;
+    left: 50%;
+    margin: -9em 0 0 -9em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+.signature {
+    font-family: "ConcertOne";
+    background-color: rgb(160, 198, 228);
+    color: orange;
+    text-align: center;
+    font-size: 3em;
+    padding: 0.35em;
+    border: 1px solid black;
+}
+
+.signature > span {
+    background-color: rgb(160, 198, 228);
+    color: green;
+}
+
+
+.brand-title {
+    font-family: "Changa";
+    text-align: center;
+    background-color: black;
+    color: rgb(160, 198, 228);
+    font-size: 4em;
+    line-height: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.on-btn, .start-btn, .strict-btn {
+    font-family: "RussoOne";
+    text-align: justify ;
+}
+
+.inner-border {
+    border: 0.5em solid rgb(155, 184, 206)
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

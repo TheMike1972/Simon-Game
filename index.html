@@ -15,27 +15,30 @@
         <p>Challenge your memory</p>
       </div>
       <div class="outer-circle">
-        <div id="top-left-panel"></div>
-        <div id="top-right-panel"></div>
-        <div id="bottom-left-panel"></div>
-        <div id="bottom-right-panel"></div>
+        <div id="top-left-panel"  class="panel" name="green"></div>
+        <div id="top-right-panel"  class="panel" name="red"></div>
+        <div id="bottom-left-panel"  class="panel" name="yellow"></div>
+        <div id="bottom-right-panel" class="panel"  name="blue"></div>
         <div id="inner-circle">
-          <div class="inner-border">
+
+        <div class="inner-border">
+          <div id="signature">
             <h2 class="signature"><span>M</span>B</h2>
+          </div>
           <h3 class="brand-title">SIMON</h3>
           <div class="btn">
-            <div class="on-btn">
-              <label for="on-off" classe="on-off-btn">ON OFF</label>
-              <input type="checkbox" id="on-off">
-              <span class="slider round"></span>
+            <div class="start">
+              <button id="start-btn"></button>
+              <p>Start Game</p>
             </div>
-            <div class="start-btn">
-              <button id="start">Start Game</button>
-            </div>
-            <div class="strict-btn">
-              <label for="strict" classe="strict">ON OFF</label>
-              <input type="checkbox" id="strict">
-              <span class="slider round"></span>
+            <div class="toggle-button-cover">
+              <div class="button-cover">
+                <div class="button r" id="strict-btn">
+                  <input type="checkbox" class="checkbox strict"/>
+                  <div class="knobs"></div>
+                  <div class="layer"></div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="turn"></div>
@@ -43,8 +46,6 @@
               COUNT
             </div>
         </div>
-          </div>
-          
       </div>
     </main>
     <footer></footer>

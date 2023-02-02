@@ -1,15 +1,10 @@
+/* Baloo 2 font */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
+
 /* Changa Variable font */
 @font-face {
     font-family: "Changa";
     src: url('./../elements/Changa-VariableFont_wght.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ConcertOne font */
-@font-face {
-    font-family: "ConcertOne";
-    src: url('./../elements/ConcertOne-Regular.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -23,34 +18,30 @@
 }
 
 * {
-    outline: 1px solid red;
-    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
-    overflow: hidden;
 }
 :root {
     --light-color: #49b749
 }
+
 body {
     background-color: rgb(136, 104, 62);
 }
 
-.container {
-    background-color:  rgb(160, 198, 228);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-    border: 1 px solid black;
-    width: 100%;
-}
-
 #head-title {
     font-size: 4em;
+}
+
+h1 {
+  font-family: "Changa";
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  padding-top: 0.4em;
+  gap: .2em;
 }
 
 h1 > span {
@@ -58,17 +49,30 @@ h1 > span {
     background-color: rgb(0, 0, 0);
     color: rgb(160, 198, 228);
     font-size: 1em;
-    line-height: 10px;
-    border-radius: 0.5em;
+    line-height: 0.5em;
+    border-radius: 1em;
     margin: 0;
-    padding: 0;
+    padding: 0.2em 0.3em;
+    display: inline-block;
 }
 
 p {
     background-color: rgb(160, 198, 228);
+    font-family: "Changa";
     font-size: 2em;
-    font-style: italic;
-    padding: 0.5em 3em
+    /* font-style: italic; */
+    padding: 0 0.5em;
+}
+
+.container {
+  background-color:  rgb(160, 198, 228);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  border: 1 px solid black;
+  width: 100%;
 }
 
 .outer-circle {
@@ -179,36 +183,25 @@ p {
     top: 50%;
     left: 50%;
     margin: -9em 0 0 -9em;
-    /* box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box */
+    padding:.8em;
 }
 
 #signature {
-    font-family: "ConcertOne";
-    background-color: rgb(160, 198, 228);
+    font-family: 'Baloo 2', cursive;
+    line-height: 1;
     color: orange;
-    /* text-align: center; */
-    /* line-height: 0.5em; */
-    font-size: 3em;
-    padding-bottom: 0.2em;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    /* align-items: flex-start; */
-
+    text-align: center;
+    font-size: 3.5em;
+    border-radius: 0.2em;
 }
 
 .signature {
-    border: 1px solid black;
-    background-color: rgb(160, 198, 228);
+    border-radius: 0.1em;
 }
 
 .signature > span {
-    background-color: rgb(160, 198, 228);
     color: green;
 }
-
 
 .brand-title {
     font-family: "Changa";
@@ -216,148 +209,44 @@ p {
     background-color: black;
     color: rgb(160, 198, 228);
     font-size: 4em;
-    line-height: 1em;
+    line-height: 0.5em;
+    border-radius: 1em;
     margin: 0;
-    padding: 0;
-}
-
-.start-btn, .strict-btn {
-    font-family: "RussoOne";
-    text-align: justify ;
-}
-
-.inner-border {
-    border: 0.5em solid rgb(155, 184, 206)
+    padding: .2em;
 }
 
 .btn {
+    padding-top: 0.6em;
+    font-family: "RussoOne", sans-serif;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-/* Strict button */
-.toggle-button-cover {
-    display: table-cell;
-    position: relative;
-    width: 100px;
-    height: 70px;
-    box-sizing: border-box;
-  }
-  
-  .button-cover {
-    height: 50px;
-    margin: 10px;
-    background-color: rgb(160, 198, 228);
-    box-shadow: 0 5px 10px -4px #c5d6d6;
-    border-radius: 4px;
-  }
-  
-  .button-cover:before {
-    counter-increment: button-counter;
-    content: counter(button-counter);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: rgb(160, 198, 228);
-    font-size: 6px;
-    line-height: 1;
-    padding: 3px;
-  }
-  
-  .button-cover,
-  .knobs,
-  .layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  
-  .button {
-    position: relative;
-    top: 50%;
-    width: 37px;
-    height: 18px;
-    margin: -10px auto 0 auto;
-    overflow: hidden;
-  }
-  
-  .button.r,
-  .button.r .layer {
-    border-radius: 50px;
-  }
-  
-  .checkbox {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 3;
-  }
-  
-  .knobs {
-    z-index: 2;
-  }
-  
-  .layer {
-    width: 100%;
-    background-color: rgb(254, 255, 255);
-    transition: 0.3s ease all;
-    z-index: 1;
-  }
-  
-#strict-btn .knobs:before {
-    content: "ON";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 10px;
-    height: 5px;
-    color: #fff;
-    font-size: 5px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1;
-    padding: 5px 2px;
-    background-color: #03a9f4;
-    border-radius: 50%;
-    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
-  }
-  
-  #strict-btn .checkbox:active + .knobs:before {
-    width: 23px;
-    border-radius: 100px;
-  }
-  
-  #strict-btn .checkbox:checked:active + .knobs:before {
-    margin-left: -13px;
-  }
-  
-  #strict-btn .checkbox:checked + .knobs:before {
-    content: "OFF";
-    left: 21px;
-    background-color: #f44336;
-  }
-  
-  #strict-btn .checkbox:checked ~ .layer {
-    background-color: rgb(255
-, 255, 255);
-  }
+#start-btn {
+  font-family: "RussoOne", sans-serif;
+  padding: 1em;
+  color: white;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: red;
+}
 
-  #start-btn {
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    background-color: red;
-  }
+#start-btn.disabled {
+  background-color: grey;
+}
 
-  .btn>.start>p {
-    font-size: 1rem;
-    display: inline;
-  }
+.text {
+  padding: 0;
+  text-align: center;
+  font-style: normal;
+  font-size: 1.1em;
+}
+
+#turn {
+  background-color: black;
+  color: red;
+  text-align: center;
+  font-size: 2.4em;
+  padding: 0 0.2em;
+}

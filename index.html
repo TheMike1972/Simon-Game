@@ -13,30 +13,38 @@
     <title>SIMON GAME</title>
   </head>
   <body>
-    <header></header>
     <main>
-      <div class="container">
-        <h1 id="head-title">Let's play <span>SIMON</span>!</h1>
+      <header class="container">
+        <h1 id="head-title">
+          Let's play 
+          <span>SIMON</span>
+          !
+        </h1>
         <p>Challenge your memory</p>
-      </div>
-      <div class="outer-circle">
+      </header>
+      <section class="outer-circle">
         <div id="top-left-panel"  class="panel" name="green"></div>
         <div id="top-right-panel"  class="panel" name="red"></div>
         <div id="bottom-left-panel"  class="panel" name="yellow"></div>
         <div id="bottom-right-panel" class="panel"  name="blue"></div>
         <div id="inner-circle">
 
-          <div class="inner-border">
-            <div id="signature">
-              <h2 class="signature"><span>M</span>B</h2>
-            </div>
+          <!-- <div class="inner-border"> -->
+            <!-- <div id="signature"> -->
+              <h2 id="signature" class="signature"><span>M</span>B</h2>
+            <!-- </div> -->
             <h3 class="brand-title">SIMON</h3>
             <div class="btn">
               <div class="start">
-                <button id="start-btn"></button>
-                <p>Start</p>
+                <button id="start-btn">START</button>
+                <!-- <p>Start</p> -->
               </div>
-            <div class="toggle-button-cover">
+              <div>
+                <div id="turn">20</div>
+                <p class="text">count</p>
+              </div>
+            </div>
+            <!-- <div class="toggle-button-cover">
               <div class="button-cover">
                 <div class="button r" id="strict-btn">
                   <input type="checkbox" class="checkbox strict"/>
@@ -44,14 +52,11 @@
                   <div class="layer"></div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div id="turn"></div>
-            <div class="text">
-              COUNT
-            </div>
+            </div> -->
+          <!-- </div> -->
+         
         </div>
-      </div>
+      </section>
     </main>
     <footer></footer>
     <script src="./script/script.js"></script>

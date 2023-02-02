@@ -1,15 +1,15 @@
 let order = [];
 let playerOrder = [];
 let amountOfNotes = 1
-let userClicks = 0
-let flash;
+let counter = 0
+
 let turn;
-let good;
-let compTurn;
+
 let intervalId; 
 let strict = false;
 let noise = true;
 let win;
+
 const lightColors = {
     green: "#49b749",
     red: "#b74953",
@@ -17,7 +17,11 @@ const lightColors = {
     blue: "#476cc1"
 }
 const playSounds = {
-
+    green: document.querySelector('.greensound'),
+    red: document.querySelector('.redsound'),
+    yellow: document.querySelector('.yellowsound'),
+    blue: document.querySelector('.bluesound'),
+    fail: document.querySelector('.failsound')
 }
 
 const turnCounter = document.querySelector('#turn');
@@ -25,7 +29,9 @@ const topLeft = document.querySelector('#top-left-panel');
 const topRight = document.querySelector('#top-right-panel');
 const bottomLeft = document.querySelector('#bottom-left-panel');
 const bottomRight = document.querySelector('#bottom-right-panel');
+
 const strictButton = document.querySelector('#strict-btn');
+
 const startButton = document.querySelector('#start-btn');
 const strictInput = document.querySelector('input.checkbox.strict')
 const allPanel = document.querySelectorAll('.panel')
@@ -34,78 +40,101 @@ const allPanel = document.querySelectorAll('.panel')
 
 startButton.addEventListener('click', (event) => {
     play();
-
 });
 
-
+function play() {
+    for (let i= 0; i < amountOfNotes; i++) {
+    generateSequence();
+    }
+    for (let i = 0; i < order.length; i++) {
+    setTimeout(() => {
+        select(order[i])
+    }, i * 1200)  
+}
+    console.log("computer", order);
+}
+// can I include a sound action if there is a different sound if the player clicks on the wrong panel?
+// 
 
 function select(panel) {
+    allPanel.forEach(panel => {
+        panel.classList.remove('selected') 
+    })
     const name = panel.getAttribute('name')
     document.body.style.setProperty('--light-color', lightColors[name])
-    panel.classList.add('selected')
-
+        panel.classList.add('selected')
+        playSounds[name].pause();
+        playSounds[name].currentTime = 0;
+        playSounds[name].play()
     setTimeout(() => {
         panel.classList.remove('selected')
-    }, 500)
+    }, 1100)
 }
+
 function generateSequence () {
     order.push(allPanel[Math.floor(Math.random() * allPanel.length)])
 }
-function playersTurn() {
-
-}
-
-// 
 
 allPanel.forEach(panel => {
+
     panel.addEventListener('click', () => {
         select(panel)
         playerOrder.push(panel);
-        const selectionName = playerOrder[userClicks].getAttribute('name')
-        const computerName = order[userClicks].getAttribute('name')
-        // console.log(selectionName === computerName);
-        if (selectionName === computerName) {
-            userClicks++
-            if (playerOrder.length === order.length) {
-                userClicks = 0
-                playerOrder = []
-                play()
-            }
 
+        console.log("player", playerOrder);
+
+        const selectionName = playerOrder[counter].getAttribute('name')
+        const computerName = order[counter].getAttribute('name')
+
+        if (selectionName === computerName) {
+            console.log('ok');
+            counter++
+
+// can I add here the part where the count adds up?
+            document.querySelector("#turn").textContent = order.length + 1;
+
+            if (playerOrder.length === order.length) {
+                if (playerOrder.length === 20) {
+                    winGame ();
+                    return;
+                }
+                counter = 0
+                playerOrder = []
+                setTimeout(() => {
+                    play()
+                }, 1500);
+            }
         } else {
-            console.log('you lose')
+            failGame ();
+            console.log('you lose');
         }
     })
 })
 
-
 function winGame() {
-    flashColor();
-    turnCounter.innerHTML = "WIN!";
-    on = false;
-    win = true;
+    document.querySelector("#turn").textContent = "WIN!";
+    counter = 0;
+    order = [];
+    playerOrder = [];
 }
 
+function failGame() {
+    document.querySelector("#turn").textContent = "OUPS!";
+    playSounds.fail.play();
 
-// function gameTurn () {
-    //     on = false;
-    //     if (flash === turn) {
-    //         clearInterval(intervalId);
-    //         compTurn = false;
-    //         clearColor();
-    //         on = true;
-    //     }
-    //     if (compTurn) {
-    //         clearColor();
-    //         setTimeout(() => {
-    //             if (order[flash] === 1) one();
-    //             if (order[flash] === 2) two();
-    //             if (order[flash] === 3) three();
-    //             if (order[flash] === 4) four();
-    //             flash++
-    //         }, 200);
-    //     }
-    // }
+    counter = 0;
+    order = [];
+    playerOrder = [];
+}
+
+// 3) then it is the player's turn - same display, and same sound.  - seems to be done as well. -> sound 
+
+
+//     everytime the player succeeds at passing a round, the count turn gets + 1;
+//     if the player reaches a serie of 20, he wins. // fct win?
+// 4c) or the game stops and the players loses (display of a failing sound)
+// 5) ideally, there would be three settings: easy, medium and fast, for faster games.
+// }
     
 // function play() {
     // win = false;
@@ -131,86 +160,6 @@ function winGame() {
     //         playersTurn()
     //     }
     // }, 800);
-// }
-    // function one() {
-    //     if(noise) {
-    //         let audio = document.getElementById("clip1");
-    //         audio.play();
-    //     }
-    //     noise = true;
-    //     // topLeft.style...
-    // }
-    
-    // function two() {
-    //     if(noise) {
-    //         let audio = document.getElementById("clip2");
-    //         audio.play();
-    //     }
-    //     noise = true;
-    //     // topRight.style...
-    // }
-    
-    // function three() {
-    //     if(noise) {
-    //         let audio = document.getElementById("clip3");
-    //         audio.play();
-    //     }
-    //     noise = true;
-    //     // bottomLeft.style...
-    // }
-    
-    // function four() {
-    //     if(noise) {
-    //         let audio = document.getElementById("clip4");
-    //         audio.play();
-    //     }
-    //     noise = true;
-    //     bottomRight.style
-    // }
-    
-    // function clearColor() {
-        
-    // }
-    
-    // function flashColor (){
-    //     topLeft.style
-    //     topRight.style
-    //     bottomLeft.style
-    //     bottomRight.style  
-    // }
-
-// topLeft.addEventListener('click', (event) => {
-//     document.body.style.setProperty('--light-color', lightColors.green)
-//     topLeft.classList.add('selected')
-//     setTimeout(() => {
-//         topLeft.classList.remove('selected')
-//     }, 500)
-// })
-
-// topRight.addEventListener('click', (event) => {
-//     document.body.style.setProperty('--light-color', lightColors.red)
-//     topRight.classList.add('selected')
-//     setTimeout(() => {
-//         topRight.classList.remove('selected')
-//     }, 500)
-// })
-
-
-// bottomLeft.addEventListener('click', (event) => {
-//     document.body.style.setProperty('--light-color', lightColors.yellow)
-//     bottomLeft.classList.add('selected')
-//     setTimeout(() => {
-//         bottomLeft.classList.remove('selected')
-//     }, 500)
-// })
-
-// bottomRight.addEventListener('click', (event) => {
-//     document.body.style.setProperty('--light-color', lightColors.blue)
-//     bottomRight.classList.add('selected')
-//     setTimeout(() => {
-//         bottomRight.classList.remove('selected')
-//     }, 500)
-// })
 
 // function check() {
 //     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1])
@@ -253,17 +202,5 @@ function winGame() {
 //         strict = true;
 //     } else {
 //         strict = false;
-//     }
-// });
-
-// onButton.addEventListener('click', (event) => {
-//     if (onButton.checked) {
-//         on = true;
-//         turnCounter.innerHTML = "-";
-//     } else {
-//         on = false;
-//         turnCounter.innerHTML = "";
-//         // clearColor();
-//         clearInterval(intervalId);
 //     }
 // });
